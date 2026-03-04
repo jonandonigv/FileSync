@@ -20,9 +20,11 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("add called")
+		fmt.Printf("Files added to sync: %v \n", args)
 	},
 }
+
+var files []string
 
 func init() {
 	rootCmd.AddCommand(addCmd)
@@ -36,4 +38,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	addCmd.Flags().StringArrayP("files", "f", files, "Add files to be sync")
 }
