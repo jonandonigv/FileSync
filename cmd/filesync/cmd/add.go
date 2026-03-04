@@ -42,5 +42,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	addCmd.Flags().StringArrayVarP(&files, "files", "f", files, "Add files to be sync")
+	addCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
 }
