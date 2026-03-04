@@ -9,6 +9,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var files []string
+
 // addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add",
@@ -20,11 +22,13 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("Files added to sync: %v \n", args)
+		fmt.Printf("Files added to sync: %v \n", files)
+		if len(files) < 1 {
+			fmt.Println("No files added")
+		} else {
+		}
 	},
 }
-
-var files []string
 
 func init() {
 	rootCmd.AddCommand(addCmd)
@@ -38,5 +42,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	addCmd.Flags().StringArrayP("files", "f", files, "Add files to be sync")
+	addCmd.Flags().StringArrayVarP(&files, "files", "f", files, "Add files to be sync")
 }
