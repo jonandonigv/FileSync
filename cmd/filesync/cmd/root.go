@@ -48,5 +48,4 @@ func init() {
 	rootCmd.PersistentFlags().String("log-level", "", "debug | info | warn | error (default: info)")
 	rootCmd.PersistentFlags().String("data-dir", "", "directory for node data, logs, snapshots (~/.filesync/data)")
 	rootCmd.PersistentFlags().String("config", "", "path to config file (defaul: ~/.filesync/config.yaml)")
-	rootCmd.PersistentFlags().BoolP("toggle", "t", false, "Help message for toggle")
 }
