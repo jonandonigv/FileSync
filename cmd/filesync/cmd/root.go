@@ -43,10 +43,10 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 
-	rootCmd.Flags().String("node-id", "", "override node Id (defualt: hostname)")
-	rootCmd.Flags().String("log-format", "", "text | json (default: text)")
-	rootCmd.Flags().String("log-level", "", "debug | info | warn | error (default: info)")
-	rootCmd.Flags().String("data-dir", "", "directory for node data, logs, snapshots (~/.filesync/data)")
-	rootCmd.Flags().String("config", "", "path to config file (defaul: ~/.filesync/config.yaml)")
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.PersistentFlags().String("node-id", "", "override node Id (defualt: hostname)")
+	rootCmd.PersistentFlags().String("log-format", "", "text | json (default: text)")
+	rootCmd.PersistentFlags().String("log-level", "", "debug | info | warn | error (default: info)")
+	rootCmd.PersistentFlags().String("data-dir", "", "directory for node data, logs, snapshots (~/.filesync/data)")
+	rootCmd.PersistentFlags().String("config", "", "path to config file (defaul: ~/.filesync/config.yaml)")
+	rootCmd.PersistentFlags().BoolP("toggle", "t", false, "Help message for toggle")
 }
