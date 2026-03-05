@@ -12,8 +12,8 @@ import (
 var files []string
 
 // addCmd represents the add command
-var watchCmd = &cobra.Command{
-	Use:   "watch",
+var initCmd = &cobra.Command{
+	Use:   "init",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -31,18 +31,12 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(watchCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// addCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	watchCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
+	rootCmd.AddCommand(initCmd)
+	initCmd.Flags().String("listen", "l", "address to bind on (default: 0.0.0.0:7946)")
+	initCmd.Flags().String("join", "j", "address of existing node to join (omit to start new cluster)")
+	initCmd.Flags().String("peer", "p", "static peer address, repeatable (--peer a:port --peer b:port)")
+	initCmd.Flags().Bool("force", false, "overwrite existing data directory")
+	initCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
 	/* For the Dir flag it should take the specified directory or the CWD if not set  */
 	/* 	addCmd.Flags().String() */
 }
