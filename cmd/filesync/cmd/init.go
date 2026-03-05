@@ -9,9 +9,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var files []string
-
-// addCmd represents the add command
 var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "A brief description of your command",
@@ -22,11 +19,7 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("Files added to sync: %v \n", files)
-		if len(files) < 1 {
-			fmt.Println("No files added")
-		} else {
-		}
+		fmt.Println("Init called")
 	},
 }
 
