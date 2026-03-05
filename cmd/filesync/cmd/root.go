@@ -12,7 +12,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "FileSync",
-	Short: "A brief description of your application",
+	Short: "FileSync is a distributed file synchronization system written in Go that keeps directories in sync across multiple nodes with strong consistency guarantees.",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
 
@@ -42,5 +42,11 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
+
+	rootCmd.Flags().String("node-id", "", "override node Id (defualt: hostname)")
+	rootCmd.Flags().String("log-format", "", "text | json (default: text)")
+	rootCmd.Flags().String("log-level", "", "debug | info | warn | error (default: info)")
+	rootCmd.Flags().String("data-dir", "", "directory for node data, logs, snapshots (~/.filesync/data)")
+	rootCmd.Flags().String("config", "", "path to config file (defaul: ~/.filesync/config.yaml)")
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
