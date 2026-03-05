@@ -12,8 +12,8 @@ import (
 var files []string
 
 // addCmd represents the add command
-var addCmd = &cobra.Command{
-	Use:   "add",
+var watchCmd = &cobra.Command{
+	Use:   "watch",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -31,7 +31,7 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(addCmd)
+	rootCmd.AddCommand(watchCmd)
 
 	// Here you will define your flags and configuration settings.
 
@@ -42,5 +42,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	addCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
+	watchCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
+	/* For the Dir flag it should take the specified directory or the CWD if not set  */
+	/* 	addCmd.Flags().String() */
 }
