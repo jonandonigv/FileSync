@@ -36,7 +36,4 @@ func init() {
 	initCmd.Flags().String("join", "j", "address of existing node to join (omit to start new cluster)")
 	initCmd.Flags().String("peer", "p", "static peer address, repeatable (--peer a:port --peer b:port)")
 	initCmd.Flags().Bool("force", false, "overwrite existing data directory")
-	initCmd.Flags().StringSliceVarP(&files, "files", "f", files, "Add files to be sync")
-	/* For the Dir flag it should take the specified directory or the CWD if not set  */
-	/* 	addCmd.Flags().String() */
 }
