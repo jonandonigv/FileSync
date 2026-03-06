@@ -1,7 +1,10 @@
+/*
+Copyright © 2026 Jon Andoni Galdos <jonandonigv@gmail.com>
+*/
 package main
 
-import "fmt"
+import "github.com/jonandonigv/FileSync/cmd/filesync/cmd"
 
 func main() {
-	fmt.Println("Hello, world!")
+	cmd.Execute()
 }
