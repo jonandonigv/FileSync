@@ -1,10 +1,17 @@
 package cmd
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+
+	"github.com/spf13/cobra"
+)
 
 var configCmd = &cobra.Command{
 	Use:   "config",
 	Short: "inspect and edit config",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("config called")
+	},
 }
 
 var showCmd = &cobra.Command{
