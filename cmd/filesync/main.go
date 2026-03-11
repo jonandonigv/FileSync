@@ -8,22 +8,13 @@ import (
 	"log"
 
 	_ "github.com/jonandonigv/FileSync/cmd/filesync/cmd"
-	"github.com/rjeczalik/notify"
+	"github.com/jonandonigv/FileSync/internal/watcher"
 )
 
-func fsWatch() {
-	c := make(chan notify.EventInfo, 1)
-	err := notify.Watch("./...", c, notify.All)
+func main() {
+	err := watcher.FsWatch("./...")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer notify.Stop(c)
-	for ei := range c {
-		log.Println("Got:", ei.Event(), ei.Path())
-	}
-}
-
-func main() {
-	fsWatch()
 	/* cmd.Execute() */
 }
